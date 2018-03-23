@@ -1,5 +1,4 @@
-// sandeep_007	
-// Yet to be done.
+// sandeep_007
 
 #include <bits/stdc++.h>
  
@@ -55,16 +54,16 @@ int main(){
 	for(int i=0;i<n;i++) for(int j=0;j<m;j++) cin >> adj[i][j];
 	vector < int > ans;
 	ans = bipartite_matching();
-	int A[200+1];
-	memset(A,-1,sizeof(A));
+	int f=0;
 	for(int i=0;i<n;i++){
-		if(ans[i] >= 0)
-			A[ans[i]] = i;	
-	}	
-		
-	for(int i=0;i<n;i++){
-		if(A[i] < 0) cout << A[i] << " ";
-		else cout << A[i]+1 << " ";
+		f=0;
+		for(int j=0;j<m;j++){
+			if(ans[j] == i){
+				cout << j+1 << " ";
+				f=1;break;
+			}		
+		}
+		if(f==0)cout << -1 << " ";
 	}
 	cout << endl;
 	return 0;	
